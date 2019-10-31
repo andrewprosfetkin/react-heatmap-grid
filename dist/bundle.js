@@ -710,7 +710,8 @@ function HeatMap(_ref) {
       squares = _ref.squares,
       cellRender = _ref.cellRender,
       cellStyle = _ref.cellStyle,
-      title = _ref.title;
+      title = _ref.title,
+      className = _ref.className;
 
   var cursor = "";
   if (onClick !== undefined) {
@@ -745,7 +746,8 @@ function HeatMap(_ref) {
       squares: squares,
       cellRender: cellRender,
       cellStyle: cellStyle,
-      title: title
+      title: title,
+      className: className
     }),
     xLabelsLocation === "bottom" && xLabelsEle
   );
@@ -3632,7 +3634,8 @@ var DataGrid = function DataGrid(_ref) {
       squares = _ref.squares,
       cellRender = _ref.cellRender,
       cellStyle = _ref.cellStyle,
-      title = _ref.title;
+      title = _ref.title,
+      className = _ref.className;
 
   var flatArray = data.reduce(function (i, o) {
     return [].concat(_toConsumableArray(o), _toConsumableArray(i));
@@ -3680,7 +3683,7 @@ var DataGrid = function DataGrid(_ref) {
               title: title(value, unit, xi),
               key: xi + "_" + yi,
               style: style,
-              className: "react-heatmap-grid-panel"
+              className: className
             },
             _react2.default.createElement(
               "div",

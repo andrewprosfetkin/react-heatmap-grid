@@ -18,7 +18,8 @@ const DataGrid = ({
   squares,
   cellRender,
   cellStyle,
-  title
+  title,
+  className
 }) => {
   const flatArray = data.reduce((i, o) => [...o, ...i], []);
   const max = Math.max(...flatArray);
@@ -59,7 +60,7 @@ const DataGrid = ({
                 title={title(value, unit, xi)}
                 key={`${xi}_${yi}`}
                 style={style}
-                className="react-heatmap-grid-panel"
+                className={className}
               >
                 <div style={{ paddingTop: `${height / 3.7}px` }}>
                   {cellRender(value, x, y)}

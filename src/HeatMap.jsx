@@ -20,7 +20,8 @@ function HeatMap({
   squares,
   cellRender,
   cellStyle,
-  title
+  title,
+  className
 }) {
   let cursor = "";
   if (onClick !== undefined) {
@@ -57,7 +58,8 @@ function HeatMap({
           squares,
           cellRender,
           cellStyle,
-          title
+          title,
+          className
         }}
       />
       {xLabelsLocation === "bottom" && xLabelsEle}
