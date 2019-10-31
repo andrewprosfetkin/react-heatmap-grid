@@ -3679,7 +3679,8 @@ var DataGrid = function DataGrid(_ref) {
               onClick: onClick.bind(undefined, xi, yi),
               title: title(value, unit, xi),
               key: xi + "_" + yi,
-              style: style
+              style: style,
+              className: "react-heatmap-grid-panel"
             },
             _react2.default.createElement(
               "div",
