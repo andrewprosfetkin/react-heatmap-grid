@@ -3683,7 +3683,7 @@ var DataGrid = function DataGrid(_ref) {
               title: title(value, unit, xi),
               key: xi + "_" + yi,
               style: style,
-              className: className
+              className: className(xi, yi)
             },
             _react2.default.createElement(
               "div",

@@ -60,7 +60,7 @@ const DataGrid = ({
                 title={title(value, unit, xi)}
                 key={`${xi}_${yi}`}
                 style={style}
-                className={className}
+                className={className(xi, yi)}
               >
                 <div style={{ paddingTop: `${height / 3.7}px` }}>
                   {cellRender(value, x, y)}
