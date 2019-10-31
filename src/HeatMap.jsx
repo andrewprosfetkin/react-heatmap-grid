@@ -21,7 +21,8 @@ function HeatMap({
   cellRender,
   cellStyle,
   title,
-  className
+  className,
+  disabled
 }) {
   let cursor = "";
   if (onClick !== undefined) {
@@ -59,7 +60,8 @@ function HeatMap({
           cellRender,
           cellStyle,
           title,
-          className
+          className,
+          disabled
         }}
       />
       {xLabelsLocation === "bottom" && xLabelsEle}

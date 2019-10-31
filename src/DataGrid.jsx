@@ -19,7 +19,8 @@ const DataGrid = ({
   cellRender,
   cellStyle,
   title,
-  className
+  className,
+  disabled
 }) => {
   const flatArray = data.reduce((i, o) => [...o, ...i], []);
   const max = Math.max(...flatArray);
@@ -61,6 +62,7 @@ const DataGrid = ({
                 key={`${xi}_${yi}`}
                 style={style}
                 className={className(xi, yi)}
+                disabled={disabled}
               >
                 <div style={{ paddingTop: `${height / 3.7}px` }}>
                   {cellRender(value, x, y)}
