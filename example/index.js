@@ -20,7 +20,7 @@ ReactDOM.render(
   <HeatMap
     xLabels={xLabels}
     yLabels={yLabels}
-    xLabelsLocation={"bottom"}
+    xLabelsLocation={["bottom", "top"]}
     xLabelsVisibility={xLabelsVisibility}
     xLabelWidth={50}
     data={data}
@@ -32,6 +32,7 @@ ReactDOM.render(
     })}
     cellRender={value => value && `${value}%`}
     title={(value, unit, index) => value && `${value}-${xLabels[index]}`}
+    className={() => {}}
   />,
   document.getElementById("app")
 );

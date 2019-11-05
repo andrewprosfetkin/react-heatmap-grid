@@ -711,7 +711,8 @@ function HeatMap(_ref) {
       cellRender = _ref.cellRender,
       cellStyle = _ref.cellStyle,
       title = _ref.title,
-      className = _ref.className;
+      className = _ref.className,
+      disabled = _ref.disabled;
 
   var cursor = "";
   if (onClick !== undefined) {
@@ -728,7 +729,9 @@ function HeatMap(_ref) {
   return _react2.default.createElement(
     "div",
     null,
-    xLabelsLocation === "top" && xLabelsEle,
+    xLabelsLocation.some(function (xl) {
+      return xl === "top";
+    }) && xLabelsEle,
     _react2.default.createElement(_DataGrid2.default, {
       xLabels: xLabels,
       yLabels: yLabels,
@@ -747,9 +750,12 @@ function HeatMap(_ref) {
       cellRender: cellRender,
       cellStyle: cellStyle,
       title: title,
-      className: className
+      className: className,
+      disabled: disabled
     }),
-    xLabelsLocation === "bottom" && xLabelsEle
+    xLabelsLocation.some(function (xl) {
+      return xl === "bottom";
+    }) && xLabelsEle
   );
 }
 
@@ -761,7 +767,7 @@ HeatMap.propTypes = {
   height: _propTypes2.default.number,
   xLabelWidth: _propTypes2.default.number,
   yLabelWidth: _propTypes2.default.number,
-  xLabelsLocation: _propTypes2.default.oneOf(["top", "bottom"]),
+  xLabelsLocation: _propTypes2.default.arrayOf(_propTypes2.default.string),
   xLabelsVisibility: _propTypes2.default.arrayOf(_propTypes2.default.bool),
   yLabelTextAlign: _propTypes2.default.string,
   displayYLabels: _propTypes2.default.bool,
@@ -780,7 +786,7 @@ HeatMap.defaultProps = {
   yLabelWidth: 40,
   yLabelTextAlign: "right",
   unit: "",
-  xLabelsLocation: "top",
+  xLabelsLocation: ["top"],
   xLabelsVisibility: null,
   displayYLabels: true,
   onClick: undefined,
@@ -3635,7 +3641,8 @@ var DataGrid = function DataGrid(_ref) {
       cellRender = _ref.cellRender,
       cellStyle = _ref.cellStyle,
       title = _ref.title,
-      className = _ref.className;
+      className = _ref.className,
+      disabled = _ref.disabled;
 
   var flatArray = data.reduce(function (i, o) {
     return [].concat(_toConsumableArray(o), _toConsumableArray(i));
@@ -3683,7 +3690,8 @@ var DataGrid = function DataGrid(_ref) {
               title: title(value, unit, xi),
               key: xi + "_" + yi,
               style: style,
-              className: className(xi, yi)
+              className: className(xi, yi),
+              disabled: disabled
             },
             _react2.default.createElement(
               "div",
