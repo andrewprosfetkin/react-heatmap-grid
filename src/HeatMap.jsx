@@ -40,7 +40,7 @@ function HeatMap({
   );
   return (
     <div>
-      {xLabelsLocation === "top" && xLabelsEle}
+      {xLabelsLocation.some(xl => xl === "top") && xLabelsEle}
       <DataGrid
         {...{
           xLabels,
@@ -64,7 +64,7 @@ function HeatMap({
           disabled
         }}
       />
-      {xLabelsLocation === "bottom" && xLabelsEle}
+      {xLabelsLocation.some(xl => xl === "bottom") && xLabelsEle}
     </div>
   );
 }
@@ -81,7 +81,7 @@ HeatMap.propTypes = {
   height: PropTypes.number,
   xLabelWidth: PropTypes.number,
   yLabelWidth: PropTypes.number,
-  xLabelsLocation: PropTypes.oneOf(["top", "bottom"]),
+  xLabelsLocation: PropTypes.arrayOf(PropTypes.string),
   xLabelsVisibility: PropTypes.arrayOf(PropTypes.bool),
   yLabelTextAlign: PropTypes.string,
   displayYLabels: PropTypes.bool,
@@ -100,7 +100,7 @@ HeatMap.defaultProps = {
   yLabelWidth: 40,
   yLabelTextAlign: "right",
   unit: "",
-  xLabelsLocation: "top",
+  xLabelsLocation: ["top"],
   xLabelsVisibility: null,
   displayYLabels: true,
   onClick: undefined,
